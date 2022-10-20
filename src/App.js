@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.sass";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div>
+			<div id="App-header">
+				<h1>Markdown Previewer</h1>
+			</div>
+			<div id="App-content">
+				<Editor />
+				<Preview />
+			</div>
+		</div>
+	);
+}
+
+function Editor() {
+	return (
+		<div>
+			<textarea id="editor" type="text-area" rows="5"></textarea>
+		</div>
+	);
+}
+
+function Preview() {
+	return (
+		<div>
+			<textarea id="preview" type="text-area" rows="5"></textarea>
+		</div>
+	);
 }
 
 export default App;
