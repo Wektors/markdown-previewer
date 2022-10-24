@@ -1,28 +1,90 @@
-body 
-    height: 100vh
+.dark
+    background: #0d0229
+    color: #bdbdad
 
+body
+    background: #bdbdad
+    
+    
 #App-header
-    display: grid
-    justify-content: center
+    display: flex
     align-items: center
     font-size: 20px
-    height: 10vh
+    height: 7vh
+    justify-content: space-between
+    padding-left: 30vw
+
+button
+    display: flex
+    align-items: center
+    color: inherit
+    background: #bdbdad
+    border-color: #0d0229
+    border: 1px solid 
+    padding: 0.5vw
+    border-radius: 2.5vw
 
 #App-content
     display: grid
+    justify-content: center
+    align-items: flex-start
+    font-size: 0.9em
+    grid-gap: 1vw
 
-#editor
+.editor-title
+    display: grid
+    grid-row: 1
+    grid-column: 1
+    justify-content: center
+    padding: 1vh
+
+.preview-title
+    display: grid
+    grid-row: 1
+    grid-column: 1
+    height: 1vh
+    justify-content: center
+    padding: 1vh
+
+
+textarea 
+    display: grid
+    border: none
+    text-decoration: none
+    grid-row: 2
+    grid-column: 1
+    height: 80vh
+    background: inherit
+    color: inherit
+
+.editor
     display: grid
     grid-column: 1
-    grid-row: 2
-    width: 40vw
-    height: 80vh
+    grid-row: 1
+    width: 45vw
     padding: 1vw
+    border: 1px solid 
+    border-radius: 1.5vw
+    background: inherit
+    color: inherit
 
-#preview
+.preview
     display: grid
     grid-column: 2
-    grid-row: 2
-    width: 40vw
-    height: 80vh
+    grid-row: 1
+    width: 45vw
     padding: 1vw
+    border: 1px solid 
+    border-radius: 1.5vw
+
+@media (max-width: 900px) 
+
+    .editor
+        grid-column: 1
+        grid-row: 1
+        width: 80vw
+
+    .preview
+        grid-column: 1
+        grid-row: 2
+        width: 80vw

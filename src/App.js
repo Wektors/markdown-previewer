@@ -4,20 +4,58 @@ import { useState, useEffect } from "react";
 import { marked } from "marked";
 import markdownExample from "./markdownExample";
 
-function App() {
+const App = () => {
+	const [darkMode, setDarkMode] = React.useState(false);
+
+	React.useEffect(() => {
+		const json = localStorage.getItem("site-dark-mode");
+		const currentMode = JSON.parse(json);
+		if (currentMode) {
+			setDarkMode(true);
+		} else {
+			setDarkMode(false);
+		}
+	}, []);
+
+	React.useEffect(() => {
+		if (darkMode) {
+			document.body.classList.add("dark");
+		} else {
+			document.body.classList.remove("dark");
+		}
+	}, [darkMode]);
+
 	return (
 		<div>
 			<div id="App-header">
 				<h1>Markdown Previewer</h1>
+				<button
+					className="dark-mode-toggle"
+					onClick={() => {
+						setDarkMode(!darkMode);
+					}}
+				>
+					{darkMode ? (
+						<img
+							width="20vw"
+							src="https://cdn-icons-png.flaticon.com/512/4489/4489231.png"
+						></img>
+					) : (
+						<img
+							width="20vw"
+							src="https://cdn-icons-png.flaticon.com/512/4623/4623236.png"
+						></img>
+					)}
+				</button>
 			</div>
 			<div>
 				<EditorAndPreview />
 			</div>
 		</div>
 	);
-}
+};
 
-const EditorAndPreview = (props) => {
+const EditorAndPreview = () => {
 	const [editorText, setEditorText] = useState("");
 
 	const updateEditorText = (event) => {
@@ -33,18 +71,21 @@ const EditorAndPreview = (props) => {
 
 	return (
 		<div id="App-content">
-			<div id="editor">
+			<div className="editor">
+				<h1 className="editor-title">Editor</h1>
 				<textarea
-					type="text-area"
+					id="editor"
 					value={editorText}
 					onChange={updateEditorText}
-					rows="5"
 				></textarea>
 			</div>
-			<div
-				id="preview"
-				dangerouslySetInnerHTML={{ __html: marked.parse(editorText) }}
-			></div>
+			<div className="preview">
+				<h1 className="preview-title">Previewer</h1>
+				<div
+					id="preview"
+					dangerouslySetInnerHTML={{ __html: marked.parse(editorText) }}
+				></div>
+			</div>
 		</div>
 	);
 };
