@@ -1,9 +1,8 @@
 import React from "react";
 import "./App.sass";
 import { useState, useEffect } from "react";
-// import { marked } from "marked";
-
-let marked = require("marked");
+import { marked } from "marked";
+import markdownExample from "./markdownExample";
 
 function App() {
 	return (
@@ -11,36 +10,41 @@ function App() {
 			<div id="App-header">
 				<h1>Markdown Previewer</h1>
 			</div>
-			<div id="App-content">
-				<Editor />
+			<div>
+				<EditorAndPreview />
 			</div>
 		</div>
 	);
 }
 
-const Editor = (props) => {
+const EditorAndPreview = (props) => {
 	const [editorText, setEditorText] = useState("");
 
 	const updateEditorText = (event) => {
 		setEditorText(event.target.value);
 	};
 
+	let [count] = useState(0);
+
 	useEffect(() => {
-		setEditorText("Markdown example ## hi");
-	});
+		setEditorText(markdownExample);
+		count++;
+	}, [count]);
+
 	return (
-		<div>
-			<div>
+		<div id="App-content">
+			<div id="editor">
 				<textarea
-					id="editor"
 					type="text-area"
 					value={editorText}
 					onChange={updateEditorText}
 					rows="5"
 				></textarea>
 			</div>
-
-			<div dangerouslySetInnerHTML={{ __html: marked.parse(editorText) }}></div>
+			<div
+				id="preview"
+				dangerouslySetInnerHTML={{ __html: marked.parse(editorText) }}
+			></div>
 		</div>
 	);
 };
