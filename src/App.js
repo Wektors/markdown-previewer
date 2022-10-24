@@ -37,11 +37,13 @@ const App = () => {
 				>
 					{darkMode ? (
 						<img
+							alt="moon icon"
 							width="20vw"
 							src="https://cdn-icons-png.flaticon.com/512/4489/4489231.png"
 						></img>
 					) : (
 						<img
+							alt="moon icon"
 							width="20vw"
 							src="https://cdn-icons-png.flaticon.com/512/4623/4623236.png"
 						></img>
