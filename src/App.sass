@@ -4,8 +4,7 @@
 
 body
     background: #bdbdad
-    
-    
+
 #App-header
     display: flex
     align-items: center
@@ -20,7 +19,7 @@ button
     color: inherit
     background: #bdbdad
     border-color: #0d0229
-    border: 1px solid 
+    border: 1px solid
     padding: 0.5vw
     border-radius: 2.5vw
 
@@ -46,8 +45,7 @@ button
     justify-content: center
     padding: 1vh
 
-
-textarea 
+textarea
     display: grid
     border: none
     text-decoration: none
@@ -63,7 +61,7 @@ textarea
     grid-row: 1
     width: 45vw
     padding: 1vw
-    border: 1px solid 
+    border: 1px solid
     border-radius: 1.5vw
     background: inherit
     color: inherit
@@ -74,10 +72,10 @@ textarea
     grid-row: 1
     width: 45vw
     padding: 1vw
-    border: 1px solid 
+    border: 1px solid
     border-radius: 1.5vw
 
-@media (max-width: 900px) 
+@media (max-width: 900px)
 
     .editor
         grid-column: 1
@@ -88,3 +86,24 @@ textarea
         grid-column: 1
         grid-row: 2
         width: 80vw
+
+@media (max-width: 400px)
+
+    #App-header
+        font-size: 10px
+
+    #App-content
+        font-size: 11px
+
+    textarea
+        font-size: 10px
+
+    .editor
+        grid-column: 1
+        grid-row: 1
+        width: 95vw
+
+    .preview
+        grid-column: 1
+        grid-row: 2
+        width: 95vw
