@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+## running on netlify: https://symphonious-valkyrie-39e9f6.netlify.app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/104524608/220199689-29309dc2-fa3d-4bbf-b2f1-3f5388fc1c1f.png)
+
 
 ## Available Scripts
 
